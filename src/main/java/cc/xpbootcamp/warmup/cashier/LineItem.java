@@ -40,7 +40,8 @@ public class LineItem {
 	}
 
     public double calcSalesTax() {
-        return totalAmount() * .10;
+		double rate = .10;
+		return totalAmount() * rate;
 
     }
 
