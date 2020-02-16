@@ -23,33 +23,11 @@ public class OrderReceipt {
     }
 
     private void printsLineItems(StringBuilder output) {
-        double totSalesTx = 0d;
-        double tot = 0d;
-        for (LineItem lineItem : order.getLineItems()) {
-            lineItem.printLineItemInfo(output);
-            totSalesTx += lineItem.calcSalesTax();
-            tot += lineItem.calcTotalAmount();
-        }
-        printsTheStateTax(output, totSalesTx);
-        printTotalAmount(output, tot);
-    }
-
-
-    private void printTotalAmount(StringBuilder output, double tot) {
-        output.append("Total Amount").append('\t').append(tot);
-    }
-
-    private void printsTheStateTax(StringBuilder output, double totSalesTx) {
-        printsTheStateTax(output, totSalesTx, "Sales Tax");
-    }
-
-    private void printsTheStateTax(StringBuilder output, double totSalesTx, String s) {
-        output.append(s).append('\t').append(totSalesTx);
+        order.getLineItemsInfo(output);
     }
 
     private void printCustomerInfo(StringBuilder output) {
-        output.append(order.getCustomerName());
-        output.append(order.getCustomerAddress());
+        order.getCustomerInfo(output);
     }
 
 
